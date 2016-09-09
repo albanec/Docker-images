@@ -1,22 +1,16 @@
 # our R base image
-FROM rocker/shiny:latest 
+FROM rocker/rstudio:latest 
 
 MAINTAINER Evgeni Maksimov "em@aistinvest.ru"
 
 # install additional packages
 RUN apt-get update && apt-get install -y \
-    libcurl4-openssl-dev \
     libxml2-dev \
-    libmariadb-client-lgpl-dev \
-    libssl-dev
+    libmariadb-client-lgpl-dev 
 
 # install additional R packages
 RUN R -e "install.packages(c('magrittr', 'tidyr', 'quantmod', 'PerformanceAnalytics', 'plotly'), dependencies=TRUE)" && \
     R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)"
 
-# copy app folder 
-COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
-COPY /app/* /srv/shiny-server/
-
 # set the command
-CMD ["/usr/bin/shiny-server.sh"]
+CMD ["/init"]
