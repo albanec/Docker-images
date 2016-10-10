@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
 
 # install additional R packages
 RUN R -e "install.packages(c('magrittr', 'tidyr', 'quantmod', 'PerformanceAnalytics', 'plotly', 'lubridate'), dependencies=TRUE)" && \
-    R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)"
+    R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)" && \
+    R -e "install.packages(c('lpSolve', 'rlist', dependencies=TRUE)"
 
 # set the command
 CMD ["/init"]
