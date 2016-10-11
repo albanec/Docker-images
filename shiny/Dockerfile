@@ -19,7 +19,5 @@ RUN R -e "install.packages(c('magrittr', 'tidyr', 'quantmod', 'PerformanceAnalyt
 # copy shiny-server.conf
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
 
-USER shiny
-
 # set the command
 CMD ["/usr/bin/shiny-server.sh"]
