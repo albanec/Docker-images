@@ -4,11 +4,13 @@ FROM rocker/shiny:latest
 MAINTAINER Evgeni Maksimov "em@aistinvest.ru"
 
 # install additional packages
-RUN apt-get update && apt-get install -y \
+RUN rm -rf /var/lib/apt/lists/* && \
+    apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libxml2-dev \
     libmariadb-client-lgpl-dev \
-    libssl-dev
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # install additional R packages
 RUN R -e "install.packages(c('magrittr', 'tidyr', 'quantmod', 'PerformanceAnalytics', 'plotly', 'lubridate'), dependencies=TRUE)" && \
