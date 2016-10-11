@@ -4,8 +4,7 @@ FROM rocker/rstudio:latest
 MAINTAINER Evgeni Maksimov "em@aistinvest.ru"
 
 # install additional packages
-RUN rm -rf /var/lib/apt/lists/* && \
-    apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libmariadb-client-lgpl-dev \
     && rm -rf /var/lib/apt/lists/*
