@@ -4,7 +4,7 @@ FROM rocker/shiny:latest
 MAINTAINER Evgeni Maksimov "em@aistinvest.ru"
 
 # install additional packages
-RUN apt-get update && apt-get install -y \
+RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libxml2-dev \
     libmariadb-client-lgpl-dev \
