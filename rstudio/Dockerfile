@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 # install additional R packages
 RUN R -e "install.packages(c('magrittr','future','tidyr','dplyr','data.table','foreach','doParallel','future','doFuture'\
-                             'quantmod','PerformanceAnalytics','plotly','lubridate','lpSolve','rlist'), \ 
+                             'quantmod','PerformanceAnalytics','plotly','lubridate','lpSolve','rlist','microbenchmark'), \ 
                            dependencies=TRUE)" && \
     R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)"
 
