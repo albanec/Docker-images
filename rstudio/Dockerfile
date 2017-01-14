@@ -15,6 +15,3 @@ RUN R -e "install.packages(c('devtools','magrittr','future','tidyr','dplyr','dat
                              'microbenchmark', 'memoise'), \
                            dependencies=TRUE)" && \
     R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)"
-    
-# set the command
-CMD ["/init"]
