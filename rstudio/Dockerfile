@@ -7,7 +7,9 @@ MAINTAINER Evgeni Maksimov "em@aistinvest.ru"
 RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libmariadb-client-lgpl-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir /home/rstudio/projects \
+    && chown rstudio:rstudio /home/rstudio/projects 
 
 # install additional R packages
 RUN R -e "install.packages(c('devtools','magrittr','future','tidyr','dplyr','data.table','foreach','doParallel', \
