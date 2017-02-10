@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && chown rstudio:rstudio /home/rstudio/projects 
 
 # install additional R packages
-RUN R -e "install.packages(c('devtools','magrittr','future','tidyr','dplyr','data.table','foreach','doParallel', \
+RUN R -e "install.packages(c('devtools','magrittr','tidyr','dplyr','data.table','foreach','doParallel', \
                              'future','doFuture','quantmod','PerformanceAnalytics','plotly','lubridate', \
                              'microbenchmark', 'memoise'), \
                            dependencies=TRUE)" && \
