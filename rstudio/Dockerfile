@@ -14,6 +14,6 @@ RUN apt-get update && apt-get install -y \
 # install additional R packages
 RUN R -e "install.packages(c('devtools','magrittr','tidyr','dplyr','data.table','foreach','doParallel', \
                              'future','doFuture','quantmod','PerformanceAnalytics','plotly','lubridate', \
-                             'microbenchmark', 'memoise'), \
+                             'microbenchmark', 'memoise', 'profvis', 'iterators', \
                            dependencies=TRUE)" && \
     R -e "install.packages('rusquant', repos='http://r-forge.r-project.org', dependencies=TRUE)"
