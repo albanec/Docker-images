@@ -23,4 +23,4 @@ RUN zcash-fetch-params && \
 
 VOLUME ["/home/zcash/.zcash"]
 
-# CMD ["zcashd"]
+CMD ["zcashd --daemon"]
