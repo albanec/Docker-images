@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y \
-  apt-transport-https libcurl4-openssl-dev libxml2-dev libssl-dev apt-utils wget ca-certificates pwgen && \
+  apt-transport-https libcurl4-openssl-dev libxml2-dev libssl-dev apt-utils wget ca-certificates pwgen nano htop && \
   wget -qO - https://apt.z.cash/zcash.asc | apt-key add - && \
   echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sources.list.d/zcash.list && \
   apt-get update && apt-get install zcash && \
