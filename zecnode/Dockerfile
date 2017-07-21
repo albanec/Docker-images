@@ -8,8 +8,7 @@ RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y \
   adduser --uid 1000 --system zcash && \
   # mv /root/.zcash-params /home/zcash/ && \
   mkdir -p /home/zcash/.zcash/ && \
-  chown -R zcash /home/zcash && \
-  echo "STEP1 COMPLETE"
+  chown -R zcash /home/zcash
 
 USER zcash
 
@@ -17,10 +16,9 @@ RUN zcash-fetch-params && \
   echo "rpcuser=zcash" >> ~/.zcash/zcash.conf && \
   echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/.zcash/zcash.conf && \
   echo "mainnet=1" >> ~/.zcash/zcash.conf && \
-  echo "addnode=mainnet.z.cash" >> ~/.zcash/zcash.conf && \
-  # echo "gen=1" && \
-  echo "STEP2 COMPLETE"
-
+  echo "addnode=mainnet.z.cash" >> ~/.zcash/zcash.conf # && \
+  # echo "gen=1"
+  
 VOLUME ["/home/zcash/.zcash"]
 
-CMD ["zcashd --daemon"]
+# CMD ["zcashd --daemon"]
