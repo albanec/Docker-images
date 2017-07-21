@@ -16,7 +16,8 @@ RUN zcash-fetch-params && \
   echo "rpcuser=zcash" >> ~/.zcash/zcash.conf && \
   echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/.zcash/zcash.conf && \
   echo "mainnet=1" >> ~/.zcash/zcash.conf && \
-  echo "addnode=mainnet.z.cash" >> ~/.zcash/zcash.conf # && \
+  echo "addnode=mainnet.z.cash" >> ~/.zcash/zcash.conf && \
+  echo "exportdir=/home/zcash/.zcash/backup/" # && \
   # echo "gen=1"
   
 VOLUME ["/home/zcash/.zcash"]
