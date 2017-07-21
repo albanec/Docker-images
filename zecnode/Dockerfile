@@ -14,13 +14,13 @@ RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y \
 USER zcash
 
 RUN zcash-fetch-params && \
-  echo "rpcuser=zcash' >> ~/.zcash/zcash.conf && \
-  echo "rpcpassword=`head -c 32 /dev/urandom | base64`' >> ~/.zcash/zcash.conf && \
+  echo "rpcuser=zcash" >> ~/.zcash/zcash.conf && \
+  echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/.zcash/zcash.conf && \
   echo "mainnet=1" >> ~/.zcash/zcash.conf && \
-  echo "addnode=mainnet.z.cash' >> ~/.zcash/zcash.conf && \
+  echo "addnode=mainnet.z.cash" >> ~/.zcash/zcash.conf && \
   # echo "gen=1" && \
   echo "STEP2 COMPLETE"
 
 VOLUME ["/home/zcash/.zcash"]
 
-# CMD ['zcashd']
+# CMD ["zcashd"]
