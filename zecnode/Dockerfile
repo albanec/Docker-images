@@ -22,4 +22,4 @@ RUN zcash-fetch-params && \
   
 VOLUME ["/home/zcash/.zcash"]
 
-# CMD ["zcashd --daemon"]
+CMD ["/usr/bin/zcashd --daemon"]
